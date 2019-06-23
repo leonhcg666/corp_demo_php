@@ -21,7 +21,7 @@ class Auth
         $accessToken = $this->cache->getCorpAccessToken('corp_access_token');
         if (!$accessToken)
         {
-            $response = $this->http->get('/gettoken', array('corpid' => CORPID, 'corpsecret' => SECRET));
+            $response = $this->http->get('/gettoken', array('appkey' => APPKEY, 'appsecret' => APPSECRET));
             $this->check($response);
             $accessToken = $response->access_token;
             $this->cache->setCorpAccessToken($accessToken);
