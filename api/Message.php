@@ -11,7 +11,7 @@ class Message
 
     public function sendToConversation($accessToken, $opt)
     {
-        $response = $this->http->post("/message/send_to_conversation",
+        $response = $this->http->post("/topapi/message/corpconversation/asyncsend_v2",
             array("access_token" => $accessToken),
             json_encode($opt));
         return $response;
@@ -19,7 +19,7 @@ class Message
 
     public function send($accessToken, $opt)
     {
-        $response = $this->http->post("/message/send",
+        $response = $this->http->post("/message/send_to_conversation",
             array("access_token" => $accessToken),json_encode($opt));
         return $response;
     }
